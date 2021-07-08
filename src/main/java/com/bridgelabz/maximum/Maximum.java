@@ -4,8 +4,7 @@ public class Maximum {
 
 	public static void main(String[] args) {
 		Maximum maximum = new Maximum();
-		Float firstValue = 18.6f, secondValue = 16.3f, thirdValue = 12.5f;
-		System.out.println(maximum.getMax(firstValue, secondValue, thirdValue));
+		System.out.println(maximum.getMax("apple", "peach", "banana"));
 
 	}
 
@@ -28,4 +27,15 @@ public class Maximum {
 
 		return max;
 	}
+
+	public String getMax(String firstValue, String secondValue, String thirdValue) {
+		String max = firstValue;
+		if (secondValue.compareTo(max) > 0)
+			max = secondValue;
+		if (thirdValue.compareTo(max) > 0)
+			max = thirdValue;
+
+		return max;
+	}
+
 }
