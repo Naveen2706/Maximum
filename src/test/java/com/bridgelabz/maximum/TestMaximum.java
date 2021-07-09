@@ -4,42 +4,36 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestMaximum {
-
-	    @Test
+	  @Test
 	    public void givenIntegerFirstNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Integer expected = 90 ;
-	        Assert.assertEquals(expected,new Maximum(90,40,10).getMax());
+	        Assert.assertEquals(90, new Maximum(90, 10,40).getMax());
 	    }
 
 	    @Test
 	    public void givenIntegerSecondNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Integer expected = 90 ;
-	        Assert.assertEquals(expected,new Maximum(40,90,10).getMax());
+	        Assert.assertEquals(90, new Maximum(10, 90, 40).getMax());
 	    }
 
 	    @Test
 	    public void givenIntegerThirdNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Integer expected = 90 ;
-	        Assert.assertEquals(expected,new Maximum(40,10,90).getMax());
+	        Assert.assertEquals(90, new Maximum(7, 10, 90).getMax());
 	    }
+
 	    @Test
 	    public void givenFloatFirstNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Float expected = 5.6f ;
-	        Assert.assertEquals(expected,new Maximum(5.6f,4.2f,2.2f).getMax());
+	        Assert.assertEquals(5.1f, new Maximum(5.1f, 3.2f, 1.9f).getMax());
 	    }
 
 	    @Test
 	    public void givenFloatSecondNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Float expected = 5.6f ;
-	        Assert.assertEquals(expected,new Maximum(4.2f, 5.6f, 2.2f).getMax());
+	        Assert.assertEquals(9.1f, new Maximum(6.1f, 9.1f, 4.5f).getMax());
 	    }
 
 	    @Test
 	    public void givenFloatThirdNumberGreater_WhenLargest_ShouldReturnTrue() {
-	        Float expected = 5.6f ;
-	        Assert.assertEquals(expected,new Maximum(1.2f,4.2f,5.6f).getMax());
+	        Assert.assertEquals(10.1f, new Maximum(5.7f, 3.4f, 10.1f).getMax());
 	    }
-	    
+
 	    @Test
 	    public void givenStringFirstGreater_WhenLargest_ShouldReturnTrue() {
 	        Assert.assertEquals("Peach", new Maximum("Apple", "Peach", "Banana").getMax());
@@ -53,5 +47,20 @@ public class TestMaximum {
 	    @Test
 	    public void givenStringThirdGreater_WhenLargest_ShouldReturnTrue() {
 	        Assert.assertEquals("Peach", new Maximum("Banana", "Apple", "Peach").getMax());
+	    }
+	    @Test
+	    public void givenValueGreaterThan3IntegerValue_WhenLargest_ShouldReturnTrue() {
+	        Assert.assertEquals(25, new Maximum(20, 6, 10, 25).getMax());
+	    }
+
+	    @Test
+	    public void givenValueGreaterThan3FloatValue_WhenLargest_ShouldReturnTrue() {
+	        Assert.assertEquals(25.5f, new Maximum(10.4f, 6.7f, 25.5f, 20.2f).getMax());
+	    }
+
+	    @Test
+	    public void givenValueGreaterThan3StringValue_WhenLargest_ShouldReturnTrue() {
+	        Assert.assertEquals("Peach", new Maximum("Banana", "Apple", "Peach", "Payaya", "Grapes", "Mango").getMax());
+
 	    }
 	}
