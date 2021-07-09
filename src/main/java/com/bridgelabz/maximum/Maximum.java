@@ -14,12 +14,12 @@ public class Maximum<E extends Comparable<E>> {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(new Maximum(1.2f, 4.2f, 5.6f, 6.0f).getMax());
-		System.out.println(new Maximum(40, 10, 90, 55).getMax());
-		System.out.println(new Maximum("apple", "banana", "grapes", "mangoes", "Watermelon", "peach").getMax());
+		new Maximum(1.2f, 4.2f, 5.6f, 6.0f).getMax();
+		new Maximum(40, 10, 90, 55).getMax();
+		new Maximum("apple", "banana", "grapes", "mangoes", "Watermelon", "peach").getMax();
 	}
 
-	public static <E extends Comparable<E>> E getMax(E firstValue, E secondValue, E thirdValue,E... extraParamaters) {
+	public static <E extends Comparable<E>> E getMax(E firstValue, E secondValue, E thirdValue, E... extraParamaters) {
 		E max = firstValue;
 		if (secondValue.compareTo(max) > 0)
 			max = secondValue;
@@ -37,6 +37,11 @@ public class Maximum<E extends Comparable<E>> {
 
 	public <E extends Comparable<E>> E getMax() {
 		E max = (E) getMax(firstValue, secondValue, thirdValue, extraParamaters);
+		printMax(max);
 		return max;
+	}
+
+	public <E extends Comparable<E>> void printMax(E max) {
+		System.out.println("Maximum Value " + max);
 	}
 }
