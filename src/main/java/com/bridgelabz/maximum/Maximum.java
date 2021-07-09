@@ -1,24 +1,33 @@
 package com.bridgelabz.maximum;
 
-public class Maximum {
+public class Maximum<E extends Comparable<E>> {
+	E firstValue;
+	E secondValue;
+	E thirdValue;
 
-	public static void main(String[] args) {
-		Maximum maximum = new Maximum();
-		Float firstFloatVal = 18.6f, secondFloatVal = 16.3f, thirdFloatVal = 12.5f;
-		Integer firstIntValue = 10, secondIntValue = 15, thirdIntValue = 20;
-		
-		System.out.println(maximum.getMax(firstFloatVal, secondFloatVal, thirdFloatVal));
-		System.out.println(maximum.getMax(firstIntValue, secondIntValue, thirdIntValue));
-		System.out.println(maximum.getMax("apple", "peach", "banana"));
+	public Maximum(E firstValue, E secondValue, E thirdValue) {
+		this.firstValue = firstValue;
+		this.secondValue = secondValue;
+		this.thirdValue = thirdValue;
 	}
 
-	public <E extends Comparable<E>> E getMax(E firstValue, E secondValue, E thirdValue) {
+	public static void main(String[] args) {
+		System.out.println(new Maximum(1.2f,4.2f,5.6f).getMax());
+		System.out.println(new Maximum(40,10,90).getMax());
+		System.out.println(new Maximum("apple", "banana", "peach").getMax());
+	}
+
+	public static <E extends Comparable<E>> E getMax(E firstValue, E secondValue, E thirdValue) {
 		E max = firstValue;
 		if (secondValue.compareTo(max) > 0)
 			max = secondValue;
 		if (thirdValue.compareTo(max) > 0)
 			max = thirdValue;
+		return max;
+	}
 
+	public <E extends Comparable<E>> E getMax() {
+		E max = (E) getMax(firstValue, secondValue, thirdValue);
 		return max;
 	}
 }
